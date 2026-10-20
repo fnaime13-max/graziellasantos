@@ -101,7 +101,8 @@
     // folha da logo por cima da laranja
     var folha = el('image', { href: 'assets/logo-folha.png', x: -150, y: -168, width: 230, height: 199, class: 'gomo-folha' }, svg);
     folha.style.transformOrigin = '-5px -144px';
-    var camadaGotas = el('g', { class: 'gota' }, svg);
+    folha.style.pointerEvents = 'none'; // a folha cobria os gomos de cima e da esquerda
+    var camadaGotas = el('g', { class: 'gota', 'pointer-events': 'none' }, svg);
     alvo.appendChild(svg);
 
     function desloca(angulo, d) { var p = pt(d, angulo); return 'translate(' + p[0] + 'px,' + p[1] + 'px)'; }
@@ -109,7 +110,12 @@
     // a laranja gira até o gomo escolhido ficar virado para o texto
     var atual = -1, giro = 0, mobile = matchMedia('(max-width: 980px)');
     function escolhe(i) {
-      if (i === atual) return;
+      if (i === atual) { // clicou no gomo que já está aberto: dá uma volta inteira
+        giro += 360;
+        roda.style.transform = 'rotate(' + giro + 'deg)';
+        textos.forEach(function (t) { t.style.transform = 'rotate(' + (-giro) + 'deg)'; });
+        return;
+      }
       atual = i;
       var esp = ESPECIALIDADES[i];
       var alvoGiro = (mobile.matches ? 90 : 0) - esp.angulo;
