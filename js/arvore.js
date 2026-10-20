@@ -25,37 +25,21 @@
     W = r.width; H = r.height;
     cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    semente = 7; copa = []; laranjas = []; flores = []; galhos = [];
-    var cx = W / 2, cy = H * .31, rx = W * .38, ry = H * .25;
-    // bolinhas que formam a copa
-    for (var i = 0; i < 44; i++) {
-      var a = rnd() * Math.PI * 2, d = Math.sqrt(rnd()) * .78;
-      copa.push({ x: cx + Math.cos(a) * rx * d, y: cy + Math.sin(a) * ry * d, r: Math.min(W, H) * (.09 + rnd() * .06), f: rnd() * 6 });
+    semente = 11; copa = []; laranjas = []; flores = []; galhos = [];
+    // pezinho fino à esquerda da foto; a copa espia por trás do canto do quadro
+    var cx = W * .2, cy = H * .17, rx = W * .15, ry = H * .12, u = Math.min(W, H);
+    for (var i = 0; i < 11; i++) {
+      var a = i / 11 * Math.PI * 2 + rnd() * .4, d = i === 0 ? 0 : .55 + rnd() * .3;
+      copa.push({ x: cx + Math.cos(a) * rx * d, y: cy + Math.sin(a) * ry * d, r: u * (.065 + rnd() * .03), f: rnd() * 6 });
     }
-    for (i = 0; i < 22; i++) { // contorno mais cheio
-      var b = i / 22 * Math.PI * 2;
-      copa.push({ x: cx + Math.cos(b) * rx * .86, y: cy + Math.sin(b) * ry * .86, r: Math.min(W, H) * (.075 + rnd() * .04), f: rnd() * 6 });
-    }
-    // galhos que aparecem dos lados
-    galhos = [[-.62, .18], [.6, .14], [-.35, -.2], [.32, -.24]];
-    // laranjas: só onde não ficam escondidas atrás dela
-    var tent = 0;
-    while (laranjas.length < 16 && tent++ < 600) {
-      var a2 = rnd() * Math.PI * 2, d2 = .35 + Math.sqrt(rnd()) * .62;
-      var x = cx + Math.cos(a2) * rx * d2, y = cy + Math.sin(a2) * ry * d2;
-      if (Math.abs(x - cx) < W * .17 && y > H * .2) continue;      // cabeça e corpo
-      if (laranjas.some(function (o) { return Math.hypot(o.x0 - x, o.y0 - y) < W * .07; })) continue;
-      var rr = Math.min(W, H) * (.03 + rnd() * .01);
-      laranjas.push({ x0: x, y0: y, x: x, y: y, r: rr, ang: 0, va: 0, fase: rnd() * 6, cara: laranjas.length % 4 === 0, estado: 'pendurada', vx: 0, vy: 0, t: 0, s: 1, giro: 0 });
-    }
-    // florzinhas de laranjeira
-    tent = 0;
-    while (flores.length < 12 && tent++ < 400) {
-      var a3 = rnd() * Math.PI * 2, d3 = .3 + rnd() * .65;
-      var fx = cx + Math.cos(a3) * rx * d3, fy = cy + Math.sin(a3) * ry * d3;
-      if (Math.abs(fx - cx) < W * .16 && fy > H * .2) continue;
-      flores.push({ x: fx, y: fy, r: Math.min(W, H) * .011, f: rnd() * 6 });
-    }
+    var pos = [[-.62, -.15], [-.2, -.55], [.35, -.42], [-.55, .4], [.05, .2]];
+    pos.forEach(function (p, k) {
+      laranjas.push({ x0: cx + p[0] * rx, y0: cy + p[1] * ry, x: 0, y: 0, r: u * .028, ang: 0, va: 0, fase: k, cara: k === 0 || k === 2, estado: 'pendurada', vx: 0, vy: 0, t: 0, s: 1, giro: 0 });
+    });
+    // galhinho lateral com uma laranja pendurada
+    galhos = [{ x0: W * .155, y0: H * .56, x1: W * .05, y1: H * .47 }];
+    laranjas.push({ x0: W * .06, y0: H * .51, x: 0, y: 0, r: u * .026, ang: 0, va: 0, fase: 9, cara: false, estado: 'pendurada', vx: 0, vy: 0, t: 0, s: 1, giro: 0 });
+    flores = [{ x: cx - rx * .1, y: cy - ry * .2, r: u * .009, f: 1 }, { x: cx + rx * .6, y: cy + ry * .1, r: u * .009, f: 2 }, { x: cx - rx * .8, y: cy + ry * .1, r: u * .008, f: 3 }];
   }
 
   function laranja(o, ox, oy) {
@@ -85,42 +69,39 @@
   function desenha(t) {
     ctx.clearRect(0, 0, W, H);
     var g = cresce < 1 ? 1 - Math.pow(1 - cresce, 3) : 1;
-    var balanco = reduz ? 0 : Math.sin(t / 1400) * 3 + vento;
-    var cx = W / 2, base = H;
+    var balanco = reduz ? 0 : Math.sin(t / 1500) * 2.5 + vento;
+    var bx = W * .13, base = H * .985, u = Math.min(W, H);
 
-    // sombra no chão
-    ctx.fillStyle = 'rgba(126,165,98,.18)';
-    ctx.beginPath(); ctx.ellipse(cx, H * .985, W * .36 * g, H * .03, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = 'rgba(126,165,98,.2)';
+    ctx.beginPath(); ctx.ellipse(bx, base, W * .09 * g, H * .014, 0, 0, Math.PI * 2); ctx.fill();
 
     ctx.save();
-    ctx.translate(cx, base); ctx.scale(g, g); ctx.translate(-cx, -base);
+    ctx.translate(bx, base); ctx.scale(g, g); ctx.translate(-bx, -base);
 
-    // tronco e galhos
+    // tronco fino e levemente curvo
     ctx.strokeStyle = C.tronco; ctx.lineCap = 'round';
-    ctx.lineWidth = W * .07;
-    ctx.beginPath(); ctx.moveTo(cx, base); ctx.quadraticCurveTo(cx - W * .02, H * .6, cx + balanco * .5, H * .36); ctx.stroke();
-    ctx.lineWidth = W * .025;
+    ctx.lineWidth = u * .016;
+    ctx.beginPath(); ctx.moveTo(bx, base); ctx.bezierCurveTo(bx + W * .03, H * .7, bx - W * .01, H * .45, W * .2 + balanco * .6, H * .2); ctx.stroke();
+    ctx.lineWidth = u * .008;
     galhos.forEach(function (gl) {
-      ctx.beginPath(); ctx.moveTo(cx + balanco * .3, H * .5);
-      ctx.quadraticCurveTo(cx + gl[0] * W * .25, H * (.42 + gl[1] * .2), cx + gl[0] * W * .5 + balanco, H * (.33 + gl[1] * .3)); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(gl.x0, gl.y0); ctx.quadraticCurveTo(gl.x0 - W * .04, gl.y0 - H * .02, gl.x1 + balanco * .4, gl.y1); ctx.stroke();
+      ctx.fillStyle = C.copa;
+      ctx.beginPath(); ctx.ellipse(gl.x1 + balanco * .4 - u * .012, gl.y1 - u * .012, u * .03, u * .014, -.6, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(gl.x1 + balanco * .4 + u * .03, gl.y1 - u * .02, u * .026, u * .012, .5, 0, Math.PI * 2); ctx.fill();
     });
 
-    // copa em 3 camadas
-    var camadas = [[C.sombra, 0, H * .018, 1], [C.copa, 0, 0, .94], [C.luz, -W * .012, -H * .014, .6]];
-    camadas.forEach(function (cm) {
+    // copa redondinha em 2 tons
+    [[C.sombra, u * .012, 1], [C.copa, 0, .9]].forEach(function (cm) {
       ctx.fillStyle = cm[0]; ctx.beginPath();
       copa.forEach(function (b) {
-        var bx = b.x + cm[1] + balanco * (1 - (b.y - H * .06) / H) + Math.sin(t / 1100 + b.f) * (reduz ? 0 : 1.2);
-        var by = b.y + cm[2];
-        ctx.moveTo(bx + b.r * cm[3], by); ctx.arc(bx, by, b.r * cm[3], 0, Math.PI * 2);
+        var x = b.x + balanco + Math.sin(t / 1100 + b.f) * (reduz ? 0 : .8), y = b.y + cm[1];
+        ctx.moveTo(x + b.r * cm[2], y); ctx.arc(x, y, b.r * cm[2], 0, Math.PI * 2);
       });
       ctx.fill();
     });
-    // brilhinhos
     ctx.fillStyle = C.brilho;
-    copa.forEach(function (b, i) { if (i % 5) return; ctx.beginPath(); ctx.arc(b.x - b.r * .3 + balanco, b.y - b.r * .35, b.r * .16, 0, Math.PI * 2); ctx.fill(); });
+    copa.forEach(function (b, i) { if (i % 3) return; ctx.beginPath(); ctx.arc(b.x - b.r * .3 + balanco, b.y - b.r * .35, b.r * .18, 0, Math.PI * 2); ctx.fill(); });
 
-    // flores
     flores.forEach(function (f) {
       var fx = f.x + balanco, fy = f.y;
       ctx.fillStyle = C.flor;
@@ -128,10 +109,8 @@
       ctx.fillStyle = C.miolo; ctx.beginPath(); ctx.arc(fx, fy, f.r * .55, 0, Math.PI * 2); ctx.fill();
     });
 
-    // laranjas penduradas
-    laranjas.forEach(function (o) { if (o.estado !== 'caindo' && o.estado !== 'chao') laranja(o, balanco, 0); });
+    laranjas.forEach(function (o) { if (o.estado === 'pendurada' || o.estado === 'brotando') { o.x = o.x0; o.y = o.y0; laranja(o, balanco, 0); } });
     ctx.restore();
-    // laranjas no chão ou caindo (fora da escala do crescimento)
     laranjas.forEach(function (o) { if (o.estado === 'caindo' || o.estado === 'chao') { ctx.globalAlpha = o.alpha == null ? 1 : o.alpha; laranja(o, 0, 0); ctx.globalAlpha = 1; } });
   }
 
@@ -185,7 +164,7 @@
     ventoAlvo = x < W / 2 ? 14 : -14;
     laranjas.forEach(function (o) { o.va += (rnd() - .5) * .3; });
     var soltas = laranjas.filter(function (o) { return o.estado === 'pendurada'; });
-    for (var k = 0; k < 2 && soltas.length; k++) cai(soltas.splice(Math.floor(rnd() * soltas.length), 1)[0], (rnd() - .5) * 4);
+    for (var k = 0; k < 1 && soltas.length; k++) cai(soltas.splice(Math.floor(rnd() * soltas.length), 1)[0], (rnd() - .5) * 4);
   });
 
   monta();
