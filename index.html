@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Graziella Santos · Nutricionista em São José dos Campos/SP</title>
+<meta name="description" content="Graziella Santos, nutricionista (CRN-3 75590/P) em São José dos Campos/SP. Nutrição clínica e esportiva, fitoterapia e saúde do idoso. Consulta presencial e online.">
+<meta name="theme-color" content="#F7F1E6">
+<link rel="icon" type="image/png" href="assets/logo-simbolo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@1,7..72,400;1,7..72,500&family=Red+Hat+Display:wght@600;700;800;900&family=Red+Hat+Text:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css?v=1">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalBusiness","name":"Graziella Santos · Nutricionista","medicalSpecialty":"Nutrition","telephone":"+55 12 99158-1505","address":{"@type":"PostalAddress","streetAddress":"Av. Alfredo Ignácio Nogueira Penido, 255, sala 209, Edifício Lê Classique","addressLocality":"São José dos Campos","addressRegion":"SP","postalCode":"12246-000","addressCountry":"BR"},"geo":{"@type":"GeoCoordinates","latitude":-23.2151362,"longitude":-45.9077883},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"54"}}
+</script>
+</head>
+<body>
+
+<!-- Loader: os 4 gomos enchem de 0 a 100% -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="logo-anim loader__logo">
+    <div class="logo-anim__laranja"><img src="assets/logo-laranja.png" alt=""><div class="logo-anim__suco"><img src="assets/logo-laranja.png" alt=""></div></div>
+    <img class="logo-anim__folha" src="assets/logo-folha.png" alt="">
+  </div>
+  <p class="loader__num"><span id="loaderNum">0</span>%</p>
+  <p class="loader__txt">Preparando cada gomo…</p>
+</div>
+
+<header class="nav" id="nav">
+  <a class="nav__marca" href="#topo" aria-label="Graziella Santos, início">
+    <img src="assets/logo-simbolo.png" alt="" width="46" height="40">
+    <span><strong>Graziella Santos</strong><small>Nutricionista · <span data-crn></span></small></span>
+  </a>
+  <nav class="nav__links" aria-label="Seções">
+    <a href="#especialidades">Especialidades</a>
+    <a href="#como-cuido">Como eu cuido</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#estudos">Estudos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <a class="btn btn--verde btn--peq" data-wa href="#">Agendar</a>
+  <button class="nav__menu" id="menuBtn" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="topo">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__texto">
+    <p class="selo"><span class="ponto"></span> São José dos Campos/SP · presencial e online</p>
+    <h1>Nutrição para <em>cada fase</em> da sua vida.</h1>
+    <p class="hero__sub">Do treino de hoje ao envelhecer com autonomia. Um plano feito a partir da sua história, da sua rotina e do que você gosta de comer.</p>
+    <ul class="hero__areas" aria-label="Áreas de atuação">
+      <li><span style="--c:var(--folha)"></span>Clínica</li>
+      <li><span style="--c:var(--mel)"></span>Esportiva</li>
+      <li><span style="--c:var(--oliva)"></span>Fitoterapia</li>
+      <li><span style="--c:var(--terra)"></span>Saúde do idoso</li>
+    </ul>
+    <div class="hero__acoes">
+      <a class="btn btn--verde" data-wa href="#">Agendar consulta <i class="seta"></i></a>
+      <a class="btn btn--linha" href="#especialidades">Ver especialidades</a>
+    </div>
+    <a class="google" href="https://www.google.com/maps/place/?q=place_id:ChIJ45D4ruA1zJQRaR6xneJ8eFM" target="_blank" rel="noopener">
+      <span class="google__nota" data-gnota>5,0</span>
+      <span class="estrelas" aria-hidden="true">★★★★★</span>
+      <span><span data-gtotal>54</span> avaliações no Google</span>
+    </a>
+  </div>
+  <div class="hero__foto">
+    <div class="hero__fundo" aria-hidden="true"></div>
+    <div class="hero__cartao">
+      <img src="assets/graziella-hero.webp" alt="Graziella Santos sorrindo no consultório, de jaleco branco" width="700" height="796" fetchpriority="high">
+    </div>
+    <div class="hero__logo logo-anim" id="heroLogo" aria-hidden="true">
+      <img class="logo-anim__laranja" src="assets/logo-laranja.png" alt="">
+      <img class="logo-anim__folha" src="assets/logo-folha.png" alt="">
+    </div>
+    <div class="hero__etiqueta">
+      <strong data-crn></strong>
+      <span>Nutricionista &amp; Gerontologia</span>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES: a laranja interativa -->
+<section class="sec especialidades" id="especialidades" aria-labelledby="t-esp">
+  <div class="sec__cab">
+    <p class="rotulo">01 · Especialidades</p>
+    <h2 id="t-esp">Quatro áreas, <em>gomo a gomo</em>.</h2>
+    <p>Toque em um gomo para ver como cada área entra no seu cuidado. Muitas vezes elas se encontram no mesmo plano.</p>
+  </div>
+  <div class="esp">
+    <div class="esp__palco">
+      <div class="esp__laranja" id="espLaranja" role="tablist" aria-label="Especialidades"></div>
+      <p class="esp__dica">Passe o mouse e clique nos gomos</p>
+    </div>
+    <div class="esp__painel" id="espPainel" aria-live="polite">
+      <!-- preenchido por js/laranja.js a partir de ESPECIALIDADES -->
+    </div>
+  </div>
+</section>
+
+<!-- COMO EU CUIDO -->
+<section class="sec cuido" id="como-cuido" aria-labelledby="t-cuido">
+  <div class="cuido__grade">
+    <div>
+      <p class="rotulo">02 · Como eu cuido</p>
+      <h2 id="t-cuido">Antes de mudar o seu prato, eu quero entender a <em>sua história</em>.</h2>
+      <p class="lead">Na primeira consulta eu escuto a sua rotina, os seus horários, o que você gosta de comer e o que já tentou. Dessa conversa nasce um plano que respeita a sua vida e muda junto com ela.</p>
+    </div>
+    <ul class="mitos">
+      <li><p class="mitos__frase">“Segunda-feira eu começo de novo.”</p><p>Aqui não existe recomeçar do zero: a gente ajusta o que você já faz.</p></li>
+      <li><p class="mitos__frase">“Esse alimento é proibido para mim.”</p><p>Nenhum alimento vira inimigo. Ele ganha lugar e medida no seu dia.</p></li>
+      <li><p class="mitos__frase">“Preciso compensar o fim de semana.”</p><p>O fim de semana faz parte do plano, não é um erro para pagar depois.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="sec dores" id="para-quem" aria-labelledby="t-dores">
+  <div class="dores__caixa">
+    <div class="sec__cab sec__cab--claro">
+      <p class="rotulo">03 · Para quem</p>
+      <h2 id="t-dores">Talvez você tenha chegado aqui porque…</h2>
+    </div>
+    <ol class="dores__lista">
+      <li>Já começou várias dietas e desistiu porque era sofrido demais.</li>
+      <li>Treina, corre ou quer começar, mas não sabe o que comer antes e depois.</li>
+      <li>Recebeu exames alterados e quer cuidar disso sem cortar tudo de uma vez.</li>
+      <li>Cuida de um pai, uma mãe ou de si e quer envelhecer com força e autonomia.</li>
+      <li>Ouve uma coisa diferente sobre comida em cada lugar e já não sabe em quem acreditar.</li>
+    </ol>
+    <a class="btn btn--mel" data-wa data-msg="Olá, Graziella! Me reconheci no seu site e queria conversar sobre a minha alimentação." href="#">Me conte pelo WhatsApp <i class="seta"></i></a>
+  </div>
+</section>
+
+<!-- ACOMPANHAMENTO -->
+<section class="sec passos" id="acompanhamento" aria-labelledby="t-passos">
+  <div class="sec__cab">
+    <p class="rotulo">04 · O acompanhamento</p>
+    <h2 id="t-passos">Três passos, <em>no seu ritmo</em>.</h2>
+  </div>
+  <ol class="passos__lista">
+    <li>
+      <span class="passos__n">1</span>
+      <h3>Escuta e avaliação</h3>
+      <p>Histórico, hábitos, exames e medidas. Na consulta podem entrar avaliações como pressão arterial e força de preensão manual.</p>
+    </li>
+    <li>
+      <span class="passos__n">2</span>
+      <h3>Um plano que cabe no seu dia</h3>
+      <p>Refeições possíveis, com comida de verdade e os alimentos de que você gosta, sem cardápio engessado.</p>
+    </li>
+    <li>
+      <span class="passos__n">3</span>
+      <h3>Retornos e ajustes</h3>
+      <p>O plano se adapta à vida real: treinos, viagens, festas e semanas difíceis entram na conta.</p>
+    </li>
+  </ol>
+  <div class="formatos">
+    <div class="formato"><h3>Presencial</h3><p>No consultório do Edifício Lê Classique, Jardim Aquarius.</p><a data-wa data-msg="Olá, Graziella! Queria saber mais sobre a consulta presencial." href="#">Perguntar no WhatsApp →</a></div>
+    <div class="formato"><h3>Online</h3><p>Por vídeo, com a mesma atenção, para quem prefere ser atendido de casa.</p><a data-wa data-msg="Olá, Graziella! Queria saber mais sobre o atendimento online." href="#">Perguntar no WhatsApp →</a></div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sec sobre" id="sobre" aria-labelledby="t-sobre">
+  <div class="sobre__foto">
+    <img src="assets/graziella-sobre.webp" alt="Graziella Santos de óculos e jaleco, sentada à mesa do consultório" width="600" height="960" loading="lazy">
+    <div class="mosaico" aria-hidden="true"></div>
+  </div>
+  <div class="sobre__texto">
+    <p class="rotulo">05 · Sobre</p>
+    <h2 id="t-sobre">Muito prazer, eu sou a <em>Graziella</em>.</h2>
+    <p class="lead">Sou nutricionista em São José dos Campos, com atuação em nutrição clínica e esportiva, fitoterapia e gerontologia.</p>
+    <p>Acredito que ninguém come só com a boca. Comemos com a memória, com o cansaço do dia, com a pressa e com as emoções. Por isso o meu trabalho começa entendendo quem está à mesa, seja um atleta amador, alguém que acabou de receber um exame ou uma pessoa idosa que quer manter a força e a independência.</p>
+    <dl class="sobre__dados">
+      <div><dt>Registro</dt><dd data-crn></dd></div>
+      <div><dt>Atendimento</dt><dd>Presencial e online</dd></div>
+      <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/nutri_grazisantos/" target="_blank" rel="noopener">@nutri_grazisantos</a></dd></div>
+    </dl>
+    <a class="btn btn--verde" data-wa href="#">Falar comigo no WhatsApp <i class="seta"></i></a>
+  </div>
+</section>
+
+<!-- CANTINHO DOS ESTUDOS -->
+<section class="sec estudos" id="estudos" aria-labelledby="t-estudos">
+  <div class="caderno">
+    <div class="caderno__cab">
+      <div>
+        <p class="rotulo">06 · Cantinho dos estudos</p>
+        <h2 id="t-estudos">E seguimos <em>nos estudos</em>.</h2>
+        <p>Cursos, simpósios e congressos que fiz desde 2019 para trazer ao consultório o que há de atual em cada área.</p>
+      </div>
+      <p class="caderno__conta"><strong id="estudosConta">12</strong><span>cursos e congressos<br>desde 2019</span></p>
+    </div>
+    <div class="caderno__filtros" role="group" aria-label="Filtrar por área">
+      <button class="chip is-on" data-f="todos">Todos</button>
+      <button class="chip" data-f="clinica">Clínica</button>
+      <button class="chip" data-f="esportiva">Esportiva</button>
+      <button class="chip" data-f="fito">Fitoterapia</button>
+      <button class="chip" data-f="mente">Mente</button>
+    </div>
+    <ol class="estudos__lista" id="estudosLista"></ol>
+  </div>
+</section>
+
+<!-- AVALIAÇÕES + DÚVIDAS -->
+<section class="sec duvidas" id="duvidas" aria-labelledby="t-duv">
+  <aside class="nota">
+    <p class="nota__num" data-gnota>5,0</p>
+    <p class="estrelas" aria-hidden="true">★★★★★</p>
+    <p><span data-gtotal>54</span> avaliações no Google</p>
+    <p class="nota__obs">Relatos sobre a escuta e o acolhimento, sem falar de resultados, como pede o conselho.</p>
+    <a class="btn btn--linha btn--peq" href="https://www.google.com/maps/place/?q=place_id:ChIJ45D4ruA1zJQRaR6xneJ8eFM" target="_blank" rel="noopener">Ler no Google</a>
+  </aside>
+  <div class="faq">
+    <p class="rotulo">07 · Dúvidas</p>
+    <h2 id="t-duv">Perguntas frequentes</h2>
+    <details><summary>Atende online?</summary><p>Sim, por vídeo, com a mesma atenção da consulta presencial.</p></details>
+    <details><summary>Como faço para agendar?</summary><p>Pelo botão de agendamento ou pelo WhatsApp, no horário que for melhor para você.</p></details>
+    <details><summary>Preciso levar exames?</summary><p>Se tiver exames recentes, traga. Se não tiver, avaliamos na consulta se são necessários.</p></details>
+    <details><summary>Atende pessoas idosas com acompanhante?</summary><p>Sim. O familiar ou cuidador pode participar da consulta, e isso costuma ajudar muito na rotina de casa.</p></details>
+    <details><summary>Sou iniciante no treino. A nutrição esportiva é para mim?</summary><p>É. Ela serve para quem está começando a se mexer e também para quem já treina ou corre há anos.</p></details>
+    <details><summary>A fitoterapia substitui remédios?</summary><p>Não. Ela é um apoio ao plano alimentar, usada com critério e dentro do que é permitido ao nutricionista. Nunca suspenda um medicamento sem falar com o seu médico.</p></details>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="sec contato" id="contato" aria-labelledby="t-contato">
+  <div class="contato__caixa">
+    <div class="contato__info">
+      <p class="rotulo">08 · Contato</p>
+      <h2 id="t-contato">Vamos começar <em>com calma</em>?</h2>
+      <p>Me conte um pouco sobre você e escolha o formato que cabe na sua rotina.</p>
+      <ul class="contato__dados">
+        <li><span>WhatsApp</span><a data-wa href="#">(12) 99158-1505</a></li>
+        <li><span>Consultório</span>Av. Alfredo Ignácio Nogueira Penido, 255, sala 209 · Edifício Lê Classique, Jardim Aquarius, São José dos Campos/SP · 12246-000</li>
+      </ul>
+      <form class="form" id="form">
+        <label>Seu nome<input name="nome" required autocomplete="name"></label>
+        <label>Qual é o seu objetivo?
+          <select name="obj" required>
+            <option value="">Escolha uma opção</option>
+            <option>Cuidar da saúde e dos exames</option>
+            <option>Alimentação para o treino</option>
+            <option>Saúde do idoso</option>
+            <option>Fitoterapia</option>
+            <option>Melhorar a relação com a comida</option>
+            <option>Outro objetivo</option>
+          </select>
+        </label>
+        <button class="btn btn--verde" type="submit">Continuar no WhatsApp <i class="seta"></i></button>
+        <p class="form__obs">Abre o WhatsApp com a mensagem pronta. Nada fica salvo neste site.</p>
+      </form>
+    </div>
+    <div class="contato__mapa">
+      <iframe title="Mapa do consultório" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=-23.2151362,-45.9077883&z=16&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="rodape__marca"><img src="assets/logo-simbolo.png" alt="" width="40" height="35"><span><strong>Graziella Santos</strong> · Nutricionista · <span data-crn></span></span></div>
+  <p>Nutrição clínica e esportiva, fitoterapia e saúde do idoso · São José dos Campos/SP e online</p>
+  <p class="rodape__obs">Os conteúdos deste site são informativos e não substituem uma avaliação individual.</p>
+</footer>
+
+<a class="wa-flutua" data-wa href="#" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+  <span>Fale comigo</span>
+</a>
+
+<script src="js/config.js?v=1"></script>
+<script src="js/laranja.js?v=1"></script>
+<script src="js/main.js?v=1"></script>
+</body>
+</html>
