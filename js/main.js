@@ -87,7 +87,7 @@
   });
 
   /* Revelar ao rolar */
-  document.querySelectorAll('.sec__cab, .mitos li, .dores__lista li, .passos__lista li, .formato, .sobre__texto, .sobre__foto, .faq details, .nota, .contato__info').forEach(function (e) { e.classList.add('revela'); });
+  document.querySelectorAll('.sec__cab, .mitos li, .dores__lista li, .passos__lista li, .formato, .diaadia__foto, .sobre__texto, .sobre__foto, .faq details, .nota, .contato__info').forEach(function (e) { e.classList.add('revela'); });
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-on'); io.unobserve(e.target); } });
   }, { threshold: .12, rootMargin: '0px 0px -40px' });
