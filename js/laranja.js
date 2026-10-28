@@ -21,7 +21,7 @@
     {
       id: 'fito', nome: 'Fitoterapia', cor: 'var(--oliva)', angulo: 90,
       titulo: 'Fitoterapia',
-      texto: 'Plantas medicinais e chás como apoio ao plano alimentar, indicados com critério e dentro do que é permitido ao nutricionista.',
+      texto: 'Plantas medicinais e chás como apoio ao plano alimentar. Sou terapeuta em fitoterapia e plantas medicinais (CRTP 10428), e cada indicação é feita com critério.',
       itens: ['Indicação individual, nunca uma receita pronta', 'Sempre em conjunto com a alimentação', 'Atenção a medicamentos que você já usa'],
       msg: 'Olá, Graziella! Queria saber mais sobre a fitoterapia.'
     },

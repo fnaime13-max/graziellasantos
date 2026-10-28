@@ -125,10 +125,13 @@ p { margin: 0; }
 .hero__arvore { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; }
 .hero__quadro { position: absolute; right: 0; bottom: 0; width: 78%; padding: 10px; background: var(--papel); box-shadow: var(--sombra); }
 .hero__quadro::before { content: ''; position: absolute; inset: 18px -18px -18px 18px; border: 2px solid var(--mel); z-index: -1; }
-.hero__quadro img { width: 100%; aspect-ratio: 800 / 718; object-fit: cover; }
-.hero__etiqueta { position: absolute; right: -10px; bottom: 12%; z-index: 2; background: var(--verde); color: #fff; padding: 14px 20px; border-radius: 18px; box-shadow: var(--sombra); transform: rotate(3deg); }
-.hero__etiqueta strong { display: block; font: 800 1.05rem var(--t-titulo); }
-.hero__etiqueta span { font-size: .85rem; color: var(--pastel); }
+.hero__quadro img { width: 100%; aspect-ratio: 800 / 898; object-fit: cover; }
+/* Selo da fitoterapia sobre a foto: leva até a credencial no Sobre */
+.hero__etiqueta { position: absolute; left: 4%; top: 12%; z-index: 2; display: flex; align-items: center; gap: 12px; background: var(--verde); color: #fff; padding: 12px 20px 12px 12px; border-radius: 20px; box-shadow: var(--sombra); transform: rotate(-3deg); text-decoration: none; transition: transform .35s cubic-bezier(.2,.8,.2,1), background .25s; }
+.hero__etiqueta:hover { transform: rotate(0) translateY(-3px); background: var(--verde-esc); }
+.hero__etiqueta i { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--mel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233A5E2C' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 19c0-8 5-13 14-14 0 9-5 14-13 14'/%3E%3Cpath d='M5 19 13 11'/%3E%3C/svg%3E") center / 22px no-repeat; }
+.hero__etiqueta strong { display: block; font: 800 1rem/1.15 var(--t-titulo); }
+.hero__etiqueta span span { font-size: .84rem; color: var(--pastel); }
 
 /* Seções */
 .sec { padding: clamp(70px, 9vw, 130px) clamp(16px, 5vw, 80px); max-width: 1360px; margin: 0 auto; }
@@ -225,9 +228,28 @@ p { margin: 0; }
 .sobre h2 { color: var(--verde); margin-bottom: 22px; }
 .sobre__texto > p { margin-bottom: 18px; color: var(--suave); }
 .sobre__texto .lead { color: var(--tinta); }
-.sobre__dados { display: grid; grid-template-columns: repeat(3, auto); gap: 16px 34px; margin: 30px 0 34px; padding: 24px 0; border-block: 1.5px solid var(--linha); }
+.sobre__dados { display: grid; grid-template-columns: repeat(2, max-content); gap: 18px 64px; margin: 30px 0 34px; padding: 24px 0; border-block: 1.5px solid var(--linha); }
 .sobre__dados dt { font: 700 .75rem var(--t-titulo); letter-spacing: .12em; text-transform: uppercase; color: var(--laranja-esc); margin-bottom: 4px; }
 .sobre__dados dd { margin: 0; font-weight: 600; }
+.sobre__texto .lead strong { color: var(--verde); font-weight: 600; }
+
+/* Credencial de fitoterapia: o certificado como um papel com lacre */
+.credencial { grid-column: 1 / -1; display: grid; grid-template-columns: .9fr 1fr; gap: clamp(36px, 6vw, 84px); align-items: center; margin-top: clamp(30px, 5vw, 60px); padding: clamp(28px, 5vw, 64px); border-radius: 36px; background: linear-gradient(135deg, var(--menta) 0%, var(--salvia) 55%, var(--pessego) 130%); position: relative; overflow: hidden; scroll-margin-top: 100px; }
+.credencial::before { content: ''; position: absolute; right: -90px; top: -90px; width: 280px; height: 280px; border-radius: 50%; border: 2px dashed rgba(78, 122, 60, .22); }
+.credencial__doc { position: relative; margin: 0 22px 22px 0; transform: rotate(-2.5deg); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+.credencial:hover .credencial__doc { transform: rotate(0); }
+.credencial__doc img { width: 100%; border-radius: 6px; background: #fff; padding: 12px; box-shadow: 0 2px 0 rgba(0,0,0,.04), var(--sombra); }
+.credencial__lacre { position: absolute; right: -22px; bottom: -22px; width: 112px; height: 112px; border-radius: 50%; display: grid; place-content: center; text-align: center; background: var(--laranja); color: #fff; box-shadow: 0 0 0 6px var(--papel), 0 16px 30px -12px rgba(176, 98, 42, .6); transform: rotate(8deg); }
+.credencial__lacre::after { content: ''; position: absolute; inset: 8px; border-radius: 50%; border: 1.5px dashed rgba(255, 255, 255, .7); }
+.credencial__lacre span { font: 700 .7rem var(--t-titulo); letter-spacing: .16em; }
+.credencial__lacre strong { font: 900 1.45rem/1 var(--t-titulo); }
+.credencial .rotulo { color: var(--laranja-esc); }
+.credencial h3 { font-size: clamp(1.7rem, 3.2vw, 2.5rem); color: var(--verde-esc); margin-bottom: 18px; }
+.credencial h3 em { font: italic 500 1.05em var(--t-italico); color: var(--laranja-esc); }
+.credencial__texto > p { color: var(--suave); margin: 0 0 24px; max-width: 54ch; }
+.credencial__itens { list-style: none; padding: 0; margin: 0 0 30px; display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 12px 30px; }
+.credencial__itens span { display: block; font: 700 .72rem var(--t-titulo); letter-spacing: .12em; text-transform: uppercase; color: var(--verde); margin-bottom: 2px; }
+.credencial__itens strong { font-weight: 600; }
 
 /* Cantinho dos estudos */
 .caderno {
@@ -311,11 +333,14 @@ p { margin: 0; }
   .nav > .btn { display: none; }
   .hero, .esp, .cuido__grade, .sobre, .duvidas, .contato__caixa { grid-template-columns: minmax(0, 1fr); }
   .form input, .form select { min-width: 0; width: 100%; }
-  .hero__foto { max-width: 520px; margin: 0 auto; width: 100%; }
+  .hero__foto { max-width: 520px; margin: 0 auto; width: 100%; aspect-ratio: 1 / 1.1; }
   .passos__lista, .formatos { grid-template-columns: 1fr; }
   .esp__painel { min-height: 0; }
   .nota { position: static; }
   .sobre__foto { max-width: 460px; margin: 0 auto; }
+  .sobre__dados { grid-template-columns: 1fr 1fr; }
+  .credencial { grid-template-columns: minmax(0, 1fr); }
+  .credencial__doc { max-width: 480px; }
   .contato__mapa iframe { min-height: 320px; }
 }
 @media (max-width: 560px) {
@@ -324,7 +349,13 @@ p { margin: 0; }
   .nav__marca img { width: 40px; }
   .nav__marca strong { font-size: .95rem; }
   .hero__foto { padding: 18px 0 18px 18px; }
-  .hero__etiqueta { right: -4px; padding: 10px 14px; }
+  .hero__etiqueta { left: 0; top: auto; bottom: -2%; padding: 9px 14px 9px 9px; gap: 9px; }
+  .hero__etiqueta i { width: 32px; height: 32px; background-size: 18px; }
+  .hero__etiqueta strong { font-size: .9rem; }
+  .credencial { border-radius: 28px; }
+  .credencial__lacre { width: 88px; height: 88px; right: -14px; bottom: -14px; }
+  .credencial__lacre strong { font-size: 1.15rem; }
+  .credencial__itens { grid-template-columns: 1fr 1fr; }
   .hero__logo { left: -8px; }
   .especialidades, .dores__caixa, .contato__caixa, .caderno { border-radius: 30px; }
   .sobre__dados { grid-template-columns: 1fr 1fr; }

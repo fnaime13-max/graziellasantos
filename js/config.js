@@ -2,7 +2,8 @@
 window.CONFIG = {
   nome: 'Graziella Santos',
   whatsapp: '5512991581505',
-  crn: 'CRN-3 75590/P',
+  crn: 'CRN-3 75590',
+  crtp: 'CRTP 10428',
   cidade: 'São José dos Campos/SP',
   google: { nota: '5,0', total: 54 },
   mensagem: 'Olá, Graziella! Vi seu site e gostaria de agendar uma consulta.'

@@ -3,6 +3,7 @@
 
   /* Dados do CONFIG */
   document.querySelectorAll('[data-crn]').forEach(function (e) { e.textContent = C.crn || 'CRN-3 a preencher'; });
+  document.querySelectorAll('[data-crtp]').forEach(function (e) { e.textContent = C.crtp; });
   document.querySelectorAll('[data-gnota]').forEach(function (e) { e.textContent = C.google.nota; });
   document.querySelectorAll('[data-gtotal]').forEach(function (e) { e.textContent = C.google.total; });
   document.querySelectorAll('[data-wa]').forEach(function (a) {
