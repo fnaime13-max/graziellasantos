@@ -203,7 +203,7 @@ p { margin: 0; }
 .passos__lista li:nth-child(3) .passos__n { background: var(--folha); color: #fff; }
 .passos__lista h3 { margin-bottom: 10px; color: var(--tinta); }
 .passos__lista p { color: var(--suave); }
-.formatos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.formatos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .formato { padding: 30px; border-radius: var(--raio); border: 1.5px solid var(--linha); background: var(--papel); }
 .formato h3 { color: var(--verde); margin-bottom: 8px; }
 .formato p { color: var(--suave); margin-bottom: 14px; }
