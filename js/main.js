@@ -46,6 +46,10 @@
   var CORES = { clinica: 'var(--verde)', esportiva: 'var(--laranja-esc)', fito: 'var(--oliva)', mente: 'var(--terra)' };
   var NOMES = { clinica: 'Clínica', esportiva: 'Esportiva', fito: 'Fitoterapia', mente: 'Mente' };
   var ESTUDOS = [
+    ['2026', 'clinica', 'Oraculum Nutrition Summit', 'Instituto Dante Pazzanese de Cardiologia · 10h'],
+    ['2026', 'clinica', 'Vitafor Science Summit: Saúde da Mulher', 'São José dos Campos/SP · 6h'],
+    ['2026', 'clinica', 'Nutriday Vitafor: Suplementação', 'Evento para nutricionistas · Campinas/SP · 9h'],
+    ['2026', 'clinica', 'Congresso Ganepão 2026', 'Maior congresso de nutrição da América Latina · São Paulo/SP'],
     ['2024', 'fito', 'Fitoterapia Avançada: Ciência, Tradicionalidade e Clínica', '1º Simpósio da Especialização · USP/FMUSP'],
     ['2024', 'clinica', 'Nutriday Vitafor Science', 'Evento para nutricionistas · Campinas/SP · 11h'],
     ['2024', 'esportiva', 'Hormonização, Nutrição e Treinamento Feminino', '20ª Clínica Prática · Uniguaçu · São Paulo/SP · 8h'],
